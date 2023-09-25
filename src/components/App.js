@@ -2,7 +2,7 @@ import React from 'react';
 import { useReducer } from "react"
 import reducer from "../reducers/index"
 import { initialState }from "../reducers/index"
-import { addOne, applyNumber } from "../actions/index"
+import { addOne, applyNumber, changeOperation } from "../actions/index"
 import './App.css';
 
 import TotalDisplay from './TotalDisplay';
@@ -18,6 +18,9 @@ function App() {
   const handleClick = (event) => {
     console.log(event)
     dispatch(applyNumber(event))
+  }
+  const operationHandler = (operation) => {
+    dispatch(changeOperation(operation))
   }
 
   return (
@@ -43,27 +46,27 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={1} onClick={(event) => {handleClick(event.target.value)}}/>
-              <CalcButton value={2} onClick={(event) => {handleClick(event.target.value)}}/>
-              <CalcButton value={3} onClick={(event) => {handleClick(event.target.value)}}/>
+              <CalcButton value={1} onClick={(event) => {handleClick(1)}}/>
+              <CalcButton value={2} onClick={(event) => {handleClick(2)}}/>
+              <CalcButton value={3} onClick={(event) => {handleClick(3)}}/>
             </div>
 
             <div className="row">
-              <CalcButton value={4} onClick={(event) => {handleClick(event.target.value)}}/>
-              <CalcButton value={5} onClick={(event) => {handleClick(event.target.value)}}/>
-              <CalcButton value={6} onClick={(event) => {handleClick(event.target.value)}}/>
+              <CalcButton value={4} onClick={(event) => {handleClick(4)}}/>
+              <CalcButton value={5} onClick={(event) => {handleClick(5)}}/>
+              <CalcButton value={6} onClick={(event) => {handleClick(6)}}/>
             </div>
 
             <div className="row">
-              <CalcButton value={7} onClick={(event) => {handleClick(event.target.value)}}/>
-              <CalcButton value={8} onClick={(event) => {handleClick(event.target.value)}}/>
-              <CalcButton value={9} onClick={(event) => {handleClick(event.target.value)}}/>
+              <CalcButton value={7} onClick={(event) => {handleClick(7)}}/>
+              <CalcButton value={8} onClick={(event) => {handleClick(8)}}/>
+              <CalcButton value={9} onClick={(event) => {handleClick(9)}}/>
             </div>
 
             <div className="row">
-              <CalcButton value={"+"}/>
-              <CalcButton value={"*"}/>
-              <CalcButton value={"-"}/>
+              <CalcButton value={"+"} onClick={(event) => {operationHandler(event.target.value)}}/>
+              <CalcButton value={"*"} onClick={(event) => {operationHandler(event.target.value)}}/>
+              <CalcButton value={"-"} onClick={(event) => {operationHandler(event.target.value)}}/>
             </div>
 
             <div className="row ce_button">
