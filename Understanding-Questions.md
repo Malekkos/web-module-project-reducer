@@ -3,5 +3,8 @@
 * The user presses the 1 button.
 * 
 ...
-
+handleClick is called
+dispatch invokes addOne()
+addOne supplies a type of 'ADD_ONE'
+our reducer recognizes the case of 'ADD_ONE' and executes its command
 * TotalDisplay shows the total plus 1.
